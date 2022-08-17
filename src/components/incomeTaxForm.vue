@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { getFederalTaxAmount } from '../Helpers/federalTaxCalc'
+import { getFederalTaxAmount } from '../Helpers/federalTaxCalc.js'
 
 const text = ref('')
 const totalFederalTax = ref(0)
@@ -40,7 +40,7 @@ function calcIncome () {
   totalSocialSecurityTax.value = socialSecurityTax
   totalMedicareTax.value = medicareTax
   totalStateTax.value = stateIncomeTax
-  takeHomePay.value = ((income - incomeTax - socialSecurityTax - medicareTax - stateIncomeTax) + standardDeduction2021)
+  takeHomePay.value = Math.round(((income - incomeTax - socialSecurityTax - medicareTax - stateIncomeTax) + standardDeduction2021))
 }
 </script>
 
