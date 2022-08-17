@@ -46,7 +46,7 @@ function calcIncome () {
 
 <template>
   <div>
-    <h1>Income Tax Calculator</h1>
+    <h1 class="text-3xl font-bold underline">Income Tax Calculator</h1>
     <h2>Your total federal tax amount is: ${{ totalFederalTax }}</h2>
     <h2>Your total social security tax amount is: ${{ totalSocialSecurityTax }}</h2>
     <h2>Your total mediacare tax amount is: ${{ totalMedicareTax }}</h2>
