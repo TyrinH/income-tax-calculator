@@ -1,8 +1,4 @@
-'use strict'
-Object.defineProperty(exports, '__esModule', { value: true })
-// eslint-disable-next-line no-void
-exports.getFederalTaxAmount = void 0
-function getFederalTaxAmount (amount) {
+export function getFederalTaxAmount (amount) {
   const standardDeduction2021 = 12550
   const income = amount - standardDeduction2021
   const firstBracket2021 = 9950
@@ -93,4 +89,3 @@ function getFederalTaxAmount (amount) {
   }
   return incomeTax
 }
-exports.getFederalTaxAmount = getFederalTaxAmount
