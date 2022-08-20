@@ -54,18 +54,23 @@ const filteredTotalSalesTax = computed(() => {
 <template>
   <h1 class="text-3xl font-bold underline pb-4">Income Tax Calculator</h1>
   <div class="grid grid-cols-4 gap-4">
-    <h2 class="">Your total federal tax amount is: <span class=" text-red-600"> {{ filteredFederalTax }}</span></h2>
-    <h2>Your total social security tax amount is: <span class=" text-red-600">{{ filteredTotalSocialSecurityTax }}</span></h2>
-    <h2>Your total mediacare tax amount is: <span class=" text-red-600">{{ filteredTotalMedicareTax }}</span></h2>
-    <h2>Your total kansas state tax amount is: <span class=" text-red-600">{{ filteredTotalSalesTax }}</span></h2>
+    <p>Your total federal tax amount is: <br> <span class=" text-red-600"> {{ filteredFederalTax }}</span></p>
+    <p>Your total social security tax amount is: <br> <span class=" text-red-600">{{ filteredTotalSocialSecurityTax }}</span></p>
+    <p>Your total mediacare tax amount is: <br> <span class=" text-red-600">{{ filteredTotalMedicareTax }}</span></p>
+    <p>Your total kansas state tax amount is: <br> <span class=" text-red-600">{{ filteredTotalSalesTax }}</span></p>
   </div>
   <div class=" py-4">
-    <h2>Your take home pay is: <span class=" text-green-500 ">{{ filteredTakeHome }}</span></h2>
+    <p>Your take home pay is: <span class=" text-green-500 ">{{ filteredTakeHome }}</span></p>
+    <!-- <select name="frequency">
+      <option value="weekly">Weekly</option>
+      <option value="biweekly">Biweekly</option>
+      <option value="monthly">Monthly</option>
+    </select> -->
   </div>
-  <div>
-      <form action="">
-        <input class=" pr-2" v-model="text" type="text" placeholder="Enter your income here">
-        <button class=" pl-4 pr-4 bg-blue-600" type="button" @click.prevent="calcIncome">Submit</button>
+  <div class="grid grid-cols-2">
+      <form class=" grid grid-cols-2">
+        <input class=" pr-4 text-center" v-model="text" type="text" placeholder="Enter your income here">
+        <button class=" mx-4 px-4 bg-blue-600" type="button" @click.prevent="calcIncome">Submit</button>
     </form>
   </div>
 </template>
