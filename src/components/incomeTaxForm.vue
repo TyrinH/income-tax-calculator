@@ -59,7 +59,7 @@ const filteredTotalSalesTax = computed(() => {
     <h2>Your total mediacare tax amount is: <span class=" text-red-600">{{ filteredTotalMedicareTax }}</span></h2>
     <h2>Your total kansas state tax amount is: <span class=" text-red-600">{{ filteredTotalSalesTax }}</span></h2>
   </div>
-  <div>
+  <div class=" py-4">
     <h2>Your take home pay is: <span class=" text-green-500 ">{{ filteredTakeHome }}</span></h2>
   </div>
   <div>
