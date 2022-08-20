@@ -96,3 +96,27 @@ export function getFederalTaxAmount(amount: number): number {
 
 }
 
+export function getStateTaxAmount(income: number): number {
+  let stateIncomeTax = 0
+  if (income > 0 && income <= 15000) {
+    if (income - 15000 === 0) {
+      stateIncomeTax = 465
+    } else {
+      stateIncomeTax = (income * 0.031)
+    }
+  } else if (income > 15000 && income <= 30000) {
+    if (income - 30000 === 0) {
+      stateIncomeTax = 930
+    } else {
+      stateIncomeTax = (income * 0.0525) + 465
+    }
+  } else if (income > 30000) {
+    if (income - 30000 === 0) {
+      stateIncomeTax = 1252.50
+    } else {
+      stateIncomeTax = (income * 0.057) + 1252.50
+    }
+  }
+  return stateIncomeTax
+}
+
