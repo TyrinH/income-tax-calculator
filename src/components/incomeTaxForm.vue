@@ -67,11 +67,11 @@ const filteredTotalSalesTax = computed(() => {
 
 <template>
   <h1 class="text-3xl font-bold underline pb-4">Income Tax Calculator</h1>
-  <div class="grid grid-cols-4 gap-4">
-    <p>Your total federal tax amount is: <br> <span class=" text-red-600"> {{ filteredFederalTax }}</span></p>
-    <p>Your total social security tax amount is: <br> <span class=" text-red-600">{{ filteredTotalSocialSecurityTax }}</span></p>
-    <p>Your total mediacare tax amount is: <br> <span class=" text-red-600">{{ filteredTotalMedicareTax }}</span></p>
-    <p>Your total kansas state tax amount is: <br> <span class=" text-red-600">{{ filteredTotalSalesTax }}</span></p>
+  <div class="lg:grid grid-cols-4 gap-4">
+    <p class="">Your total federal tax amount is: <br> <span class=" text-red-600"> {{ filteredFederalTax }}</span></p>
+    <p class="">Your total social security tax amount is: <br> <span class=" text-red-600">{{ filteredTotalSocialSecurityTax }}</span></p>
+    <p class="">Your total mediacare tax amount is: <br> <span class=" text-red-600">{{ filteredTotalMedicareTax }}</span></p>
+    <p class="">Your total Kansas state tax amount is: <br> <span class=" text-red-600">{{ filteredTotalSalesTax }}</span></p>
   </div>
   <div class=" py-4">
     <p v-if="frequency === 'weekly' ">Your take home pay is: <span class=" text-green-500 ">{{ filteredTakeHomeWeekly }}</span></p>
