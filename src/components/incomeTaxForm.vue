@@ -9,6 +9,7 @@ const totalMedicareTax = ref(0)
 const takeHomePay = ref(0)
 const totalStateTax = ref(0)
 const displayPay = ref('')
+const frequency = ref('yearly')
 function calcIncome () {
   const standardDeduction2021 = 12550
   const income = (parseInt(text.value) - standardDeduction2021)
@@ -30,7 +31,19 @@ const currencyFormatter = new Intl.NumberFormat('en-US', {
   minimumFractionDigits: 2
 })
 
-const filteredTakeHome = computed(() => {
+const filteredTakeHomeWeekly = computed(() => {
+  return currencyFormatter.format(takeHomePay.value / 52)
+})
+
+const filteredTakeHomeBiWeekly = computed(() => {
+  return currencyFormatter.format(takeHomePay.value / 26)
+})
+
+const filteredTakeHomeMonthly = computed(() => {
+  return currencyFormatter.format(takeHomePay.value / 12)
+})
+
+const filteredTakeHomeYearly = computed(() => {
   return currencyFormatter.format(takeHomePay.value)
 })
 
@@ -49,6 +62,7 @@ const filteredTotalMedicareTax = computed(() => {
 const filteredTotalSalesTax = computed(() => {
   return currencyFormatter.format(totalStateTax.value)
 })
+
 </script>
 
 <template>
@@ -60,17 +74,21 @@ const filteredTotalSalesTax = computed(() => {
     <p>Your total kansas state tax amount is: <br> <span class=" text-red-600">{{ filteredTotalSalesTax }}</span></p>
   </div>
   <div class=" py-4">
-    <p>Your take home pay is: <span class=" text-green-500 ">{{ filteredTakeHome }}</span></p>
-    <!-- <select name="frequency">
+    <p v-if="frequency === 'weekly' ">Your take home pay is: <span class=" text-green-500 ">{{ filteredTakeHomeWeekly }}</span></p>
+    <p v-if="frequency === 'biweekly' ">Your take home pay is: <span class=" text-green-500 ">{{ filteredTakeHomeBiWeekly }}</span></p>
+    <p v-if="frequency === 'monthly' ">Your take home pay is: <span class=" text-green-500 ">{{ filteredTakeHomeMonthly }}</span></p>
+    <p v-if="frequency === 'yearly' ">Your take home pay is: <span class=" text-green-500 ">{{ filteredTakeHomeYearly }}</span></p>
+    <select v-model="frequency">
       <option value="weekly">Weekly</option>
       <option value="biweekly">Biweekly</option>
       <option value="monthly">Monthly</option>
-    </select> -->
+      <option value="yearly">Yearly</option>
+    </select>
   </div>
   <div class="grid grid-cols-2">
-      <form class=" grid grid-cols-2">
+      <form class=" grid grid-cols-2" @submit.prevent="calcIncome">
         <input class=" pr-4 text-center" v-model="text" type="text" placeholder="Enter your income here">
-        <button class=" mx-4 px-4 bg-blue-600" type="button" @click.prevent="calcIncome">Submit</button>
+        <button class=" mx-4 px-4 bg-blue-600" type="button" @click="calcIncome">Submit</button>
     </form>
   </div>
 </template>
