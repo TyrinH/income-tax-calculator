@@ -66,7 +66,7 @@ const filteredTotalSalesTax = computed(() => {
 </script>
 
 <template>
-  <h1 class="text-3xl font-bold underline pb-4">Income Tax Calculator</h1>
+  <h1 class="text-3xl font-bold underline pb-4">Kansas Income Tax Calculator</h1>
   <div class="lg:grid grid-cols-4 gap-4">
     <p class="">Your total federal tax amount is: <br> <span class=" text-red-600"> {{ filteredFederalTax }}</span></p>
     <p class="">Your total social security tax amount is: <br> <span class=" text-red-600">{{ filteredTotalSocialSecurityTax }}</span></p>
