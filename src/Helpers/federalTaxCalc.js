@@ -85,6 +85,8 @@ export function getFederalTaxAmount (amount) {
   } else {
     if (income - sixthBracket2021 === 0) {
       incomeTax = ((income - sixthBracket2021) * 0.37) + firstBrackerMaxTax2021 + secondBracketMaxTax2021 + thirdBracketMaxTax2021 + fourthBracketMaxTax2021 + fifthBracketMaxTax2021 + sixthBracketMaxTax2021
+    } else {
+      incomeTax = ((income - sixthBracket2021) * 0.37) + firstBrackerMaxTax2021 + secondBracketMaxTax2021 + thirdBracketMaxTax2021 + fourthBracketMaxTax2021 + fifthBracketMaxTax2021 + sixthBracketMaxTax2021
     }
   }
   return incomeTax

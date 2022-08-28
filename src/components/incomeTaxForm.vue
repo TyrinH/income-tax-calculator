@@ -85,8 +85,8 @@ const filteredTotalSalesTax = computed(() => {
       <option value="yearly">Yearly</option>
     </select>
   </div>
-  <div class="grid grid-cols-2">
-      <form class=" grid grid-cols-2" @submit.prevent="calcIncome">
+  <div>
+      <form @submit.prevent="calcIncome">
         <input class=" pr-4 text-center" v-model="text" type="text" placeholder="Enter your income here">
         <button class=" mx-4 px-4 bg-blue-600" type="button" @click="calcIncome">Submit</button>
     </form>
